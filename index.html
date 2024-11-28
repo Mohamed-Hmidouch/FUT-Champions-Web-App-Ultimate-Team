@@ -4,199 +4,275 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Squad Builder</title>
 </head>
 <body>
-  <div class="h-screen bg-cover bg-center" style="background-image: url('../assets/images/stadium_background.webp');">
+
       <div class="flex h-full">
-    <div class="flex-1 grid h-full grid-rows-5 grid-cols-4 gap-2 items-center justify-items-center p-4">
-      <div class="relative row-[5] col-span-2 col-start-2">
-        <div id="player-1" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer('GK')" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
+        <div class="flex-1 grid grid-rows-5 grid-cols-4 gap-2 items-center justify-items-center p-4 h-screen bg-cover bg-center" style="background-image: url('../assets/images/stadium_background.webp');">
   
-      <div class="relative row-[4] col-[1]">
-        <div id="player-2" name="RB" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
-      <div class="relative row-[4] col-[2]">
-        <div id="player-3" name="CB" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
-      <div class="relative row-[4] col-[3]">
-        <div id="player-4" name="CB" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
-      <div class="relative row-[4] col-[4]">
-        <div id="player-5" name="LB" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
-  
-      <div class="relative row-[3] col-span-2 col-start-2">
-        <div id="player-6" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
-      <div class="relative row-[2] col-[1]">
-        <div id="player-7" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
-      <div class="relative row-[2] col-[4]">
-        <div id="player-8" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
-  
-      <div class="relative row-[1] col-[1]">
-        <div class="relative w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-            <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-                Add Player
-            </button>
+          <div class="relative row-[5] col-span-2 col-start-2">
+            <div id="player-1" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer('GK')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div class="relative row-[4] col-[1]">
+            <div id="player-2" name="RB" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div class="relative row-[4] col-[2]">
+            <div id="player-3" name="CB" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div class="relative row-[4] col-[3]">
+            <div id="player-4" name="CB" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div class="relative row-[4] col-[4]">
+            <div id="player-5" name="LB" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div class="relative row-[3] col-span-2 col-start-2">
+            <div id="player-6" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div class="relative row-[2] col-[1]">
+            <div id="player-7" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div ```html
+          <div class="relative row-[2] col-[4]">
+            <div id="player-8" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div class="relative row-[1] col-[1]">
+            <div class="relative w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div class="relative row-[1] col-span-2 col-start-2">
+            <div id="player-10" name="ST" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
+        
+          <div class="relative row-[1] col-[4]">
+            <div id="player-11" name="RW" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
+              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="relative row-[1] col-span-2 col-start-2">
-        <div id="player-10" name="ST" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
-      <div class="relative row-[1] col-[4]">
-        <div id="player-11" name="RW" class="w-24 h-36 bg-cover bg-center" style="background-image: url('../assets/images/badge_gold.webp');"></div>
-        <button onclick="addPlayer()" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1">
-            Add Player
-        </button>
-      </div>
-    </div>
-    <div id="player-form-container" class="w-96 bg-gray-800 bg-opacity-90 p-6 rounded-lg text-white shadow-md">
+        
+    <div id="player-form-container" class="w-96  bg-gray-800  bg-opacity-90 p-6 rounded-lg text-white shadow-md">
       <h2 class="text-2xl font-bold mb-4">Add Player</h2>
       <form id="add-player-form" class="space-y-6">
         <fieldset id="player-fields" class="hidden">
-          <legend class="text-lg font-bold">Player Details</legend>
-          <div>
-            <label for="name" class="block text-sm font-medium mb-1">Player Name</label>
-            <input type="text" id="name" name="name" placeholder="Lionel Messi" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-sm font-medium mb-1">Player Name</label>
+              <input type="text" id="name" name="name" placeholder="Ismael Saibari" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="nameError" class="text-sm hidden"></span>
+            </div>
+        
+            <div>
+              <label for="photo" class="block text-sm font-medium mb-1">Upload Player Photo</label>
+              <input type="url" id="photo" name="photo" placeholder="https://cdn.sofifa.net/players/259/480/25_120.png" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="photoError" class="text-sm hidden"></span>
+            </div>
           </div>
-          <div>
-            <label for="photo" class="block text-sm font-medium mb-1">Upload Player Photo</label>
-            <input type="file" id="photo" name="photo" accept="image/*" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+        
+          <div class="grid grid-cols-2 gap-4 mt-4">
+            <div>
+              <label for="position" class="block text-sm font-medium mb-1">Position</label>
+              <input type="text" id="position" name="position" placeholder="CM" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="positionError" class="text-sm hidden"></span>
+            </div>
+        
+            <div>
+              <label for="nationality" class="block text-sm font-medium mb-1">Nationality</label>
+              <input type="text" id="nationality" name="nationality" placeholder="Morocco" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="nationalityError" class="text-sm hidden"></span>
+            </div>
+        
+            <div>
+              <label for="flag" class="block text-sm font-medium mb-1">Flag</label>
+              <input type="text" id="flag" name="flag" placeholder="URL to Flag" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <input type= "text" id="flag" name="flag" placeholder="URL to Flag" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="flagError" class="text-sm hidden"></span>
+            </div>
+        
+            <div>
+              <label for="club" class="block text-sm font-medium mb-1">Club</label>
+              <input type="text" id="club" name="club" placeholder="PSV" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="clubError" class="text-sm hidden"></span>
+            </div>
+        
+            <div>
+              <label for="logo" class="block text-sm font-medium mb-1">Club Logo</label>
+              <input type="text" id="logo" name="logo" placeholder="URL to Club Logo" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="logoError" class="text-sm hidden"></span>
+            </div>
+        
+            <div>
+              <label for="rating" class="block text-sm font-medium mb-1">Rating</label>
+              <input type="number" id="rating" name="rating" min="0" max="100" placeholder="83" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="ratingError" class="text-sm hidden"></span>
+            </div>
           </div>
-          <div>
-            <label for="position" class="block text-sm font-medium mb-1">Position</label>
-            <select id="position" name="position" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-              <option value="LW">Left Wing (LW)</option>
-              <option value="RW">Right Wing (RW)</option>
-              <option value="ST">Striker (ST)</option>
-              <option value="CM">Central Midfielder (CM)</option>
-              <option value="LB">Left Back (LB)</option>
-              <option value="RB">Right Back (RB)</option>
-              <option value="CB">Center Back (CB)</option>
-              <option value="GK">Goalkeeper (GK)</ option>
-            </select>
-          </div>
-          <div id="outfield-stats" class="space-y-4">
+        
+          <div class="grid grid-cols-2 gap-4 mt-4">
             <div>
               <label for="pace" class="block text-sm font-medium mb-1">Pace</label>
-              <input type="number" id="pace" name="pace" min="0" max="100" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <input type="number" id="pace" name="pace" min="0" max="100" placeholder="89" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="paceError" class="text-sm hidden"></span>
             </div>
+        
             <div>
               <label for="shooting" class="block text-sm font-medium mb-1">Shooting</label>
-              <input type="number" id="shooting" name="shooting" min="0" max="100" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <input type="number" id="shooting" name="shooting" min="0" max="100" placeholder="78" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="shootingError" class="text-sm hidden"></span>
             </div>
+        
             <div>
               <label for="passing" class="block text-sm font-medium mb-1">Passing</label>
-              <input type="number" id="passing" name="passing" min="0" max="100" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <input type="number" id="passing" name="passing" min="0" max="100" placeholder="80" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="passingError" class="text-sm hidden"></span>
             </div>
+        
             <div>
               <label for="dribbling" class="block text-sm font-medium mb-1">Dribbling</label>
-              <input type="number" id="dribbling" name="dribbling" min="0" max="100" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <input type="number" id="dribbling" name="dribbling" min="0" max="100" placeholder="86" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="dribblingError" class="text-sm hidden"></span>
             </div>
+        
             <div>
               <label for="defending" class="block text-sm font-medium mb-1">Defending</label>
-              <input type="number" id="defending" name="defending" min="0" max="100" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <input type="number" id="defending" name="defending" min="0" max="100" placeholder="55" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="defendingError" class="text-sm hidden"></span>
             </div>
+        
             <div>
               <label for="physical" class="block text-sm font-medium mb-1">Physical</label>
-              <input type="number" id="physical" name="physical" min="0" max="100" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <input type="number" id="physical" name="physical" min="0" max="100" placeholder="84" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+              <span id="physicalError" class ```html
+="text-sm hidden"></span>
+            </div>
+          </div>
+          
+          <button type="button" onclick="validateForm(event)" class="mt-4 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+            Submit
+          </button>
+        </fieldset>
+        
+        <fieldset id="goalkeeper-fields" class="hidden space-y-4">
+          <legend class="text-lg font-bold">Goalkeeper Details</legend>
+          
+          <div class="flex flex-wrap gap-4">
+            <div class="w-1/2">
+              <label for="name" class="block text-sm font-medium mb-1">Player Name</label>
+              <input type="text" id="name" name="name" placeholder="Gianluigi Donnarumma" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="w-1/2">
+              <label for="photo" class="block text-sm font-medium mb-1">Player Photo URL</label>
+              <input type="url" id="photo" name="photo" placeholder="https://cdn.sofifa.net/players/230/621/25_120.png" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+          </div>
+        
+          <div class="flex flex-wrap gap-4">
+            <div class="w-1/2">
+              <label for="nationality" class="block text-sm font-medium mb-1">Nationality</label>
+              <input type="text" id="nationality" name="nationality" placeholder="Italy" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="w-1/2">
+              <label for="flag" class="block text-sm font-medium mb-1">Nationality Flag URL</label>
+              <input type="url" id="flag" name="flag" placeholder="https://cdn.sofifa.net/flags/it.png" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+          </div>
+        
+          <div class="flex flex-wrap gap-4">
+            <div class="w-1/2">
+              <label for="club" class="block text-sm font-medium mb-1">Club</label>
+              <input type="text" id="club" name="club" placeholder="Paris Saint-Germain" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="w-1/2">
+              <label for="logo" class="block text-sm font-medium mb-1">Club Logo URL</label>
+              <input type="url" id="logo" name="logo" placeholder="https://cdn.sofifa.net/meta/team/591/120.png" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+          </div>
+        
+          <div class="flex flex-wrap gap-4">
+            <div class="w-1/2">
+              <label for="rating" class="block text-sm font-medium mb-1">Rating</label>
+              <input type="number" id="rating" name="rating" min="0" max="100" placeholder="89" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="w-1/2">
+              <label for="diving" class="block text-sm font-medium mb-1">Diving</label>
+              <input type="number" id="diving" name="diving" min="0" max="100" placeholder="88" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+          </div>
+        
+          <div class="flex flex-wrap gap-4">
+            <div class="w-1/2">
+              <label for="handling" class="block text-sm font-medium mb-1">Handling</label>
+              <input type="number" id="handling" name="handling" min="0" max="100" placeholder="84" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus ```html
+              <input type="number" id="handling" name="handling" min="0" max="100" placeholder="84" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="w-1/2">
+              <label for="kicking" class="block text-sm font-medium mb-1">Kicking</label>
+              <input type="number" id="kicking" name="kicking" min="0" max="100" placeholder="75" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+          </div>
+        
+          <div class="flex flex-wrap gap-4">
+            <div class="w-1/2">
+              <label for="reflexes" class="block text-sm font-medium mb-1">Reflexes</label>
+              <input type="number" id="reflexes" name="reflexes" min="0" max="100" placeholder="90" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="w-1/2">
+              <label for="speed" class="block text-sm font-medium mb-1">Speed</label>
+              <input type="number" id="speed" name="speed" min="0" max="100" placeholder="50" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
+            </div>
+          </div>
+        
+          <div class="flex flex-wrap gap-4">
+            <div class="w-1/2">
+              <label for="positioning" class="block text-sm font-medium mb-1">Positioning</label>
+              <input type="number" id="positioning" name="positioning" min="0" max="100" placeholder="85" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
             </div>
           </div>
         </fieldset>
-        <fieldset id="goalkeeper-fields" class="hidden space-y-4">
-          <legend class="text-lg font-bold">Goalkeeper Details</legend>
-          <div>
-            <label for="name" class="block text-sm font-medium mb-1">Player Name</label>
-            <input type="text" id="name" name="name" placeholder="Gianluigi Donnarumma" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="photo" class="block text-sm font-medium mb-1">Upload Player Photo</label>
-            <input type="url" id="photo" name="photo" placeholder="https://cdn.sofifa.net/players/230/621/25_120.png" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="nationality" class="block text-sm font-medium mb-1">Nationality</label>
-            <input type="text" id="nationality" name="nationality" placeholder="Italy" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="flag" class="block text-sm font-medium mb-1">Nationality Flag URL</label>
-            <input type="url" id="flag" name="flag" placeholder="https://cdn.sofifa.net/flags/it.png" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="club" class="block text-sm font-medium mb-1">Club</label>
-            <input type="text" id="club" name="club" placeholder="Paris Saint-Germain" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="logo" class="block text-sm font-medium mb-1">Club Logo URL</label>
-            <input type="url" id="logo" name="logo" placeholder="https://cdn.sofifa.net/meta/team/591/120.png" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="rating" class="block text-sm font-medium mb-1">Rating</label>
-            <input type="number" id="rating" name="rating" min="0" max="100" placeholder="89" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="diving" class="block text-sm font-medium mb-1">Diving</label>
-            <input type="number" id="diving" name="diving" min="0" max="100" placeholder="88" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="handling" class="block text-sm font-medium mb-1">Handling</label>
-            <input type="number" id="handling" name="handling" min="0" max="100" placeholder="84" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="kicking" class="block text-sm font-medium mb-1">Kicking</label>
-            <input type="number" id="kicking" name="kicking" min="0" max="100" placeholder="75" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="reflexes" class="block text-sm font-medium mb-1">Reflexes</label>
-            <input type="number" id="reflexes" name="reflexes" min="0" max="100" placeholder="90" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="speed" class="block text-sm font-medium mb-1">Speed</label>
-            <input type="number" id="speed" name="speed" min="0" max="100" placeholder="50" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-          <div>
-            <label for="positioning" class="block text-sm font-medium mb-1">Positioning</label>
-            <input type="number" id="positioning" name="positioning" min="0" max="100" placeholder="85" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-          </div>
-        </fieldset>
+        
         <button type="submit" class="w-full py-2 bg-green-600 hover:bg-green-700 rounded font-bold">Add Player</button>
       </form>
     </div>
   </div>
+
+  <div class="w-full text-center">
+    <h2 class="text-3xl font-bold text-black">Remplacement</h2>
+    <div id="replacement-section" class="grid gap-4 mt-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    </div>
   </div>
+
   <script src="assets/scripts/main.js"></script>
   <script src="assets/scripts/fetch.js"></script>
 </body>
