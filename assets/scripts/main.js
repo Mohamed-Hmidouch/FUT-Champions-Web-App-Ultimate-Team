@@ -1,8 +1,18 @@
 let playersList = [];
 let response;
-let gK_fildes = document.getElementById('goalkeeper-fields');
-let player_fileds = document.getElementById('player-fields');
-let container_fildes = document.getElementById('player-form-container');
+let playerIds = [];
+let container_fields = document.getElementById('player-form-container');
+let gK_fields = document.getElementById('goalkeeper-fields');
+let player_fields = document.getElementById('player-fields');
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetchDataPlayers();
+    loadPlayersFromLocalStorage();
+});
+
+window.onload = function() {
+    hideFormFields();
+};
 
 async function fetchDataPlayers() {
     try {
@@ -23,8 +33,6 @@ async function fetchDataPlayers() {
     }
 }
 
-fetchDataPlayers();
-
 function savePlayerToLocalStorage(player) {
     if (Array.isArray(playersList)) {
         playersList.push(player);
@@ -35,15 +43,21 @@ function savePlayerToLocalStorage(player) {
     }
 }
 
-function addPlayer(position) {
-    container_fildes.classList.remove('hidden');
+function toggleFormFields(position) {
+    container_fields.classList.remove('hidden');
     if (position === 'GK') {
-        gK_fildes.classList.remove('hidden');
-        player_fileds.classList.add('hidden');
+        gK_fields.classList.remove('hidden');
+        player_fields.classList.add('hidden');
     } else {
-        player_fileds.classList.remove('hidden');
-        gK_fildes.classList.add('hidden');
+        player_fields.classList.remove('hidden');
+        gK_fields.classList.add('hidden');
     }
+}
+
+function hideFormFields() {
+    if (container_fields) container_fields.classList.add('hidden');
+    if (gK_fields) gK_fields.classList.add('hidden');
+    if (player_fields) player_fields.classList.add('hidden');
 }
 
 function validateForm(event) {
@@ -93,43 +107,49 @@ function validateForm(event) {
     });
 
     if (valid) {
-        const player = {
-            name: document.getElementById('name').value,
-            photo: document.getElementById('photo').value,
-            position: document.getElementById('position').value,
-            nationality: document.getElementById('nationality').value,
-            flag: document.getElementById('flag').value,
-            club: document.getElementById('club').value,
-            logo: document.getElementById('logo').value,
-            rating: parseInt(document.getElementById('rating').value),
-            pace: parseInt(document.getElementById('pace').value),
-            shooting: parseInt(document.getElementById('shooting').value),
-            passing: parseInt(document.getElementById('passing').value),
-            dribbling: parseInt(document.getElementById('dribbling').value),
-            defending: parseInt(document.getElementById('defending').value),
-            physical: parseInt(document.getElementById('physical').value)
-        };
-
-        savePlayerToLocalStorage(player);
-        alert('Player added successfully!');
+        addPlayerToLocalStorage();
+    } else {
         event.preventDefault();
     }
 }
 
-function createPlayerCard(player) {
+function addPlayerToLocalStorage() {
+    const player = {
+        name: document.getElementById('name').value,
+        photo: document.getElementById('photo').value,
+        position: document.getElementById('position').value,
+        nationality: document.getElementById('nationality').value,
+        flag: document.getElementById('flag').value,
+        club: document.getElementById('club').value,
+        logo: document.getElementById('logo').value,
+        rating: parseInt(document.getElementById('rating').value),
+        pace: parseInt(document.getElementById('pace').value),
+        shooting: parseInt(document.getElementById('shooting').value),
+        passing: parseInt(document.getElementById('passing').value),
+        dribbling: parseInt(document.getElementById('dribbling').value),
+        defending: parseInt(document.getElementById('defending').value),
+        physical: parseInt(document.getElementById('physical').value)
+    };
+
+    savePlayerToLocalStorage(player);
+    alert('Player added successfully!');
+}
+
+function createPlayerCard(player, index) {
     return `
-      <div class="bg-gray-800 text-white p-4 rounded-lg shadow-md">
-        <img src="${player.photo}" alt="Player Photo" class="h-32 w-full bg-cover bg-center rounded-lg">
-        <div class="mt-4 text-lg font-bold text-center">${player.name}</div>
-        <div class="flex justify-between items-center mt-2">
-          <img src="${player.logo}" alt="Club Logo" class="h-8 w-8 rounded-full">
-          <img src="${player.flag}" alt="Country Flag" class="h-8 w-12 rounded">
+    <div id="player-${index}" name="${player.position}" class="card flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" draggable="true" ondragstart="drag(event)">
+      <div class="text-center text-white p-2 rounded-lg w-full h-full flex flex-col justify-center items-center">
+        <img src="${player.photo}" alt="Player Photo" class bg-cover bg-center rounded-full mb-2">
+        <div class="text-sm font-bold">${player.name}</div>
+        <div class="flex justify-between items-center mt-2 text-xs">
+          <img src="${player.logo}" alt="Club Logo" class="h-6 w-6 rounded-full">
+          <img src="${player.flag}" alt="Country Flag" class="h-6 w-8 rounded">
         </div>
-        <div class="text-sm mt-2 text-center">
+        <div class="text-xs mt-2">
           <span>${player.nationality}</span> | 
           <span>${player.position}</span>
         </div>
-        <div class="grid grid-cols-2 gap-2 text-xs mt-4">
+        <div class="grid grid-cols-2 gap-1 text-xs mt-4">
           <div>Rating: ${player.rating}</div>
           <div>Pace: ${player.pace}</div>
           <div>Shooting: ${player.shooting}</div>
@@ -139,32 +159,107 @@ function createPlayerCard(player) {
           <div>Passing: ${player.passing}</div>
         </div>
       </div>
+    </div>
     `;
-  }
+}
 
 function loadPlayersFromLocalStorage() {
-    const playersList = JSON.parse(localStorage.getItem("Playerslist"));
     const replacementSection = document.getElementById("replacement-section");
-  
+    replacementSection.innerHTML = '';
 
-    if (!playersList || playersList.length === 0) {
-      replacementSection.innerHTML = "<p>No players found.</p>";
-      return;
-    }
+    const playersList = JSON.parse(localStorage.getItem("Playerslist"));
   
-    playersList.forEach((player) => {
-
-      const card = createPlayerCard(player);
-      replacementSection.innerHTML += card;
+    playersList.forEach((player, index) => {
+        const card = createPlayerCard(player, index);
+        replacementSection.innerHTML += card;
+        playerIds.push(`player-${index}`);
     });
-  }
 
+    document.querySelectorAll('.card').forEach(card => {
+        card.setAttribute('draggable', 'true');
+        card.setAttribute('ondragstart', 'drag(event)');
+    });
+}
 
+function allowDrop(event) {
+    event.preventDefault();
+}
 
-document.addEventListener("DOMContentLoaded", loadPlayersFromLocalStorage);
+function drag(event) {
+    const draggedElement = event.target;
 
-window.onload = function() {
-    container_fildes.classList.add('hidden');
-    gK_fildes.classList.add('hidden');
-    player_fileds.classList.add('hidden');
-};
+    if (draggedElement && draggedElement.id) {
+        event.dataTransfer.setData("text", draggedElement.id);
+        console.log("Dragging element ID:", draggedElement.id);
+    } else {
+        console.error("Dragged element does not have a valid ID");
+    }
+}
+
+function drop(event) {
+    event.preventDefault();
+
+    const target = event.target.closest('[name]') || event.target;
+    const data = event.dataTransfer.getData("text");
+    const draggedElement = document.getElementById(data);
+
+    if (!draggedElement) {
+        console.error("Dragged element not found in the DOM");
+        return;
+    }
+
+    const draggedPosition = draggedElement.getAttribute('name') || 
+                             findParentWithAttribute(draggedElement, 'data-name')?.getAttribute('data-name');
+
+    if (!draggedPosition) {
+        console.error("Dragged element position could not be determined");
+        return;
+    }
+
+    if (target.hasAttribute('name')) {
+        const targetPosition = target.getAttribute('name');
+
+        const playersList = JSON.parse(localStorage.getItem("Playerslist")) || [];
+        const playerIndex = playerIds.indexOf(data);
+        const playerInStorage = playersList[playerIndex];
+
+        console.log('Debugging:', {
+            draggedPosition: draggedPosition,
+            targetPosition: targetPosition,
+            playerStoragePosition: playerInStorage ? playerInStorage.position : 'No player found'
+        });
+
+        if (draggedPosition === targetPosition) {
+            if (!target.classList.contains('filled')) {
+                target.innerHTML = '';
+                target.appendChild(draggedElement);
+                target.classList.add('filled');
+            } else {
+                alert('Slot is already filled');
+            }
+        } else {
+            alert('Position mismatch');
+            console.log({
+                draggedElement,
+                draggedPosition,
+                targetPosition
+            });
+        }
+    } else {
+        alert('Cannot drop here');
+    }
+}
+
+function findParentWithAttribute(element, attributeName) {
+    while (element && !element.hasAttribute(attributeName)) {
+        element = element.parentElement;
+    }
+    return element;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.hmed').forEach(slot => {
+        slot.setAttribute('ondrop', 'drop(event)');
+        slot.setAttribute('ondragover', 'allowDrop(event)');
+    });
+});

@@ -16,69 +16,69 @@
         <div class="flex-1 grid grid-rows-5 grid-cols-4 gap-2 items-center justify-items-center p-4 h-screen bg-cover bg-center" style="background-image: url('../assets/images/stadium_background.webp');">
   
           <div class="relative row-[5] col-span-2 col-start-2">
-            <div id="player-1" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer('GK')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div  class="hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('GK')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
           <div class="relative row-[4] col-[1]">
-            <div id="player-2" name="RB" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div  name="RB" class=" hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('RB')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
           <div class="relative row-[4] col-[2]">
-            <div id="player-3" name="CB" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div  name="CB" class=" hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('CB')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
           <div class="relative row-[4] col-[3]">
-            <div id="player-4" name="CB" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div  name="CB" class=" hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('CB')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
           <div class="relative row-[4] col-[4]">
-            <div id="player-5" name="LB" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div name="LB" class="hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('LB')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
           <div class="relative row-[3] col-span-2 col-start-2">
-            <div id="player-6" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div  name="CM" class=" hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('CM')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
           <div class="relative row-[2] col-[1]">
-            <div id="player-7" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div  name="CM" class=" hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('CM')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
           <div ```html
           <div class="relative row-[2] col-[4]">
-            <div id="player-8" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div name="CM" class=" hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('CM')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
-          <div class="relative row-[1] col-[1]">
-            <div class="relative w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+          <div class="relative row-[1] col-[1]" >
+            <div  name="LW" class="relative hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('LW')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
           <div class="relative row-[1] col-span-2 col-start-2">
-            <div id="player-10" name="ST" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div  name="ST" class=" hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('ST')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         
           <div class="relative row-[1] col-[4]">
-            <div id="player-11" name="RW" class="w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');">
-              <i onclick="addPlayer()" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
+            <div  name="RW" class=" hmed w-24 h-36 bg-cover bg-center flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <i onclick="toggleFormFields('RW')" class="fa-solid fa-plus text-white bg-black hover:bg-gray-800 font-medium rounded-md text-xs px-3 py-1"></i>
             </div>
           </div>
         </div>
@@ -174,14 +174,10 @@
             <div>
               <label for="physical" class="block text-sm font-medium mb-1">Physical</label>
               <input type="number" id="physical" name="physical" min="0" max="100" placeholder="84" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
-              <span id="physicalError" class ```html
-="text-sm hidden"></span>
+              <span id="physicalError" class="text-sm hidden"></span>
             </div>
           </div>
           
-          <button type="button" onclick="validateForm(event)" class="mt-4 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
-            Submit
-          </button>
         </fieldset>
         
         <fieldset id="goalkeeper-fields" class="hidden space-y-4">
@@ -234,7 +230,6 @@
           <div class="flex flex-wrap gap-4">
             <div class="w-1/2">
               <label for="handling" class="block text-sm font-medium mb-1">Handling</label>
-              <input type="number" id="handling" name="handling" min="0" max="100" placeholder="84" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus ```html
               <input type="number" id="handling" name="handling" min="0" max="100" placeholder="84" class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-green-500">
             </div>
             <div class="w-1/2">
@@ -261,15 +256,14 @@
             </div>
           </div>
         </fieldset>
-        
-        <button type="submit" class="w-full py-2 bg-green-600 hover:bg-green-700 rounded font-bold">Add Player</button>
+        <button type="button" onclick="validateForm(event)" class="w-full py-2 bg-green-600 hover:bg-green-700 rounded font-bold">Add Player</button>
       </form>
     </div>
   </div>
 
-  <div class="w-full text-center">
+  <div>
     <h2 class="text-3xl font-bold text-black">Remplacement</h2>
-    <div id="replacement-section" class="grid gap-4 mt-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div id="replacement-section" class="card-container">
     </div>
   </div>
 
