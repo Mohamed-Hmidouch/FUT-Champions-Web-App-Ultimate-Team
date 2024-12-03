@@ -352,9 +352,3 @@ function findParentWithAttribute(element, attributeName) {
     return element;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.hmed').forEach(slot => {
-        slot.setAttribute('ondrop', 'drop(event)');
-        slot.setAttribute('ondragover', 'allowDrop(event)');
-    });
-});
