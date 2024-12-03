@@ -39,7 +39,7 @@
         "nationality": "Belgium",
         "flag": "https://cdn.sofifa.net/flags/be.png",
         "club": "Manchester City",
-        "logo": "https://cdn.sofifa.net/players/239/085/25_120.png",
+        "logo": "https://th.bing.com/th/id/R.4142ae1faf0ee1b6ca68e3ed9c629bec?rik=S4TGinb8opdZUA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fmanchester-city-logo-png-manchester-city-2272.png&ehk=IyFGHczsONQWiX0LVLKo9YD2sp6c0DikMd1LKtOMvG0%3d&risl=&pid=ImgRaw&r=0",
         "rating": 91,
         "pace": 74,
         "shooting": 86,
@@ -47,6 +47,53 @@
         "dribbling": 88,
         "defending": 64,
         "physical": 78
+      },
+      {
+        "name": "Joshua Kimmich",
+        "photo": "https://cdn.sofifa.net/players/212/622/25_120.png",
+        "position": "CM",
+        "nationality": "Germany",
+        "flag": "https://cdn.sofifa.net/flags/de.png",
+        "club": "Bayern Munich",
+        "logo": "https://cdn.sofifa.net/meta/team/503/120.png",
+        "rating": 89,
+        "pace": 70,
+        "shooting": 75,
+        "passing": 88,
+        "dribbling": 84,
+        "defending": 84,
+        "physical": 81
+      },
+      {
+        "name": "Trent Alexander-Arnold",
+        "photo": "https://cdn.sofifa.net/players/231/281/25_120.png",
+        "position": "RB",
+        "nationality": "England",
+        "flag": "https://cdn.sofifa.net/flags/gb-eng.png",
+        "club": "Liverpool",
+        "rating": 87,
+        "pace": 76,
+        "shooting": 66,
+        "passing": 89,
+        "dribbling": 80,
+        "defending": 79,
+        "physical": 71
+      },
+      {
+        "name": "Antonio Rudiger",
+        "photo": "https://cdn.sofifa.net/players/205/452/25_120.png",
+        "position": "CB",
+        "nationality": "Germany",
+        "flag": "https://cdn.sofifa.net/flags/de.png",
+        "club": "Real Madrid",
+        "logo": "https://cdn.sofifa.net/meta/team/3468/120.png",
+        "rating": 88,
+        "pace": 82,
+        "shooting": 55,
+        "passing": 73,
+        "dribbling": 70,
+        "defending": 86,
+        "physical": 86
       },
       {
         "name": "Kylian Mbappé",
@@ -79,22 +126,6 @@
         "dribbling": 72,
         "defending": 92,
         "physical": 86
-      },
-      {
-        "name": "Youssef En-Nesyri",
-        "photo": "https://cdn.sofifa.net/players/235/410/25_120.png",
-        "position": "ST",
-        "nationality": "Morocco",
-        "flag": "https://cdn.sofifa.net/flags/ma.png",
-        "club": "Fenerbahçe",
-        "logo": "https://cdn.sofifa.net/meta/team/88/120.png",
-        "rating": 83,
-        "pace": 82,
-        "shooting": 82,
-        "passing": 63,
-        "dribbling": 77,
-        "defending": 36,
-        "physical": 80
       },
       {
         "name": "Noussair Mazraoui",
@@ -146,4 +177,3 @@
       }
     ]
   }
-  

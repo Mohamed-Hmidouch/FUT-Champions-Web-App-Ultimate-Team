@@ -26,8 +26,6 @@ async function fetchDataPlayers() {
             playersList = jsonPlayers.players;
             localStorage.setItem("Playerslist", JSON.stringify(playersList));
         }
-
-        console.log('Players stored in localStorage:', playersList);
     } catch (error) {
         console.error('Error fetching players data:', error);
     }
@@ -132,13 +130,14 @@ function addPlayerToLocalStorage() {
     };
 
     savePlayerToLocalStorage(player);
-    alert('Player added successfully!');
+    swal("Player added successfully!", "Player added in localStorage", "success");
+    
 }
 
 function createPlayerCard(player, index) {
     return `
-    <div id="player-${index}" name="${player.position}" class="card flex justify-center items-center" style="background-image: url('../assets/images/badge_gold.webp');" draggable="true" ondragstart="drag(event)">
-      <div class="text-center text-white p-2 rounded-lg w-full h-full flex flex-col justify-center items-center">
+    <div id="player-${index}" name="${player.position}" class="card flex flex-col justify-center items-center relative" style="background-image: url('../assets/images/fut21-icon.webp');" draggable="true" ondragstart="drag(event)">
+      <div class="text-center p-2 rounded-lg w-full h-full flex flex-col justify-center items-center">
         <img src="${player.photo}" alt="Player Photo" class bg-cover bg-center rounded-full mb-2">
         <div class="text-sm font-bold">${player.name}</div>
         <div class="flex justify-between items-center mt-2 text-xs">
@@ -159,9 +158,105 @@ function createPlayerCard(player, index) {
           <div>Passing: ${player.passing}</div>
         </div>
       </div>
+   
+      <div class="flex justify-around items-center w-full mt-2 p-2 border-t border-gray-300">
+       
+        <i class="fa fa-edit text-blue-600 cursor-pointer" onclick="editPlayer(event, ${index})" title="Edit Player"></i>
+      
+        <i class="fa fa-trash text-red-600 cursor-pointer" onclick="deletePlayer(event, ${index})" title="Delete Player"></i>
+      </div>
     </div>
     `;
+    
 }
+function deletePlayer(event, index) {
+    event.stopPropagation();
+
+
+    const playersList = JSON.parse(localStorage.getItem("Playerslist")) || [];
+
+
+    if (index >= 0 && index < playersList.length) {
+  
+        playersList.splice(index, 1);
+
+  
+        localStorage.setItem("Playerslist", JSON.stringify(playersList));
+
+
+        loadPlayersFromLocalStorage();
+
+        swal("Player delete with successfully!", "Player delete from localStorage", "info");
+    } else {
+        console.error("Invalid index for deletion:", index);
+    }
+}
+
+function editPlayer(event, index) {
+    event.stopPropagation(); 
+
+
+    const player = playersList[index];
+
+    document.getElementById('name').value = player.name;
+    document.getElementById('photo').value = player.photo;
+    document.getElementById('position').value = player.position;
+    document.getElementById('nationality').value = player.nationality;
+    document.getElementById('flag').value = player.flag;
+    document.getElementById('club').value = player.club;
+    document.getElementById('logo').value = player.logo;
+    document.getElementById('rating').value = player.rating;
+    document.getElementById('pace').value = player.pace;
+    document.getElementById('shooting').value = player.shooting;
+    document.getElementById('passing').value = player.passing;
+    document.getElementById('dribbling').value = player.dribbling;
+    document.getElementById('defending').value = player.defending;
+    document.getElementById('physical').value = player.physical;
+
+
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.textContent = "Edit Player";
+    submitBtn.setAttribute('onclick', `updatePlayer(${index})`); // تغيير حدث الضغط على الزر إلى تحديث اللاعب
+
+
+    document.getElementById('player-fields').classList.remove('hidden');
+}
+
+function updatePlayer(index) {
+
+    const updatedPlayer = {
+        name: document.getElementById('name').value,
+        photo: document.getElementById('photo').value,
+        position: document.getElementById('position').value,
+        nationality: document.getElementById('nationality').value,
+        flag: document.getElementById('flag').value,
+        club: document.getElementById('club').value,
+        logo: document.getElementById('logo').value,
+        rating: parseInt(document.getElementById('rating').value),
+        pace: parseInt(document.getElementById('pace').value),
+        shooting: parseInt(document.getElementById('shooting').value),
+        passing: parseInt(document.getElementById('passing').value),
+        dribbling: parseInt(document.getElementById('dribbling').value),
+        defending: parseInt(document.getElementById('defending').value),
+        physical: parseInt(document.getElementById('physical').value)
+    };
+
+
+    playersList[index] = updatedPlayer;
+
+
+    localStorage.setItem("Playerslist", JSON.stringify(playersList));
+
+
+    loadPlayersFromLocalStorage();
+
+
+    document.getElementById('player-fields').classList.add('hidden');
+
+    swal("Player edit with successfully!", "Player editer from localStorage", "info");
+}
+
+
 
 function loadPlayersFromLocalStorage() {
     const replacementSection = document.getElementById("replacement-section");
