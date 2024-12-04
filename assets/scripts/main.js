@@ -134,41 +134,7 @@ function addPlayerToLocalStorage() {
     
 }
 
-function createPlayerCard(player, index) {
-    return `
-    <div id="player-${index}" name="${player.position}" class="card flex flex-col justify-center items-center relative" style="background-image: url('../assets/images/fut21-icon.webp');" draggable="true" ondragstart="drag(event)">
-      <div class="text-center p-2 rounded-lg w-full h-full flex flex-col justify-center items-center">
-        <img src="${player.photo}" alt="Player Photo" class bg-cover bg-center rounded-full mb-2">
-        <div class="text-sm font-bold">${player.name}</div>
-        <div class="flex justify-between items-center mt-2 text-xs">
-          <img src="${player.logo}" alt="Club Logo" class="h-6 w-6 rounded-full">
-          <img src="${player.flag}" alt="Country Flag" class="h-6 w-8 rounded">
-        </div>
-        <div class="text-xs mt-2">
-          <span>${player.nationality}</span> | 
-          <span>${player.position}</span>
-        </div>
-        <div class="grid grid-cols-2 gap-1 text-xs mt-4">
-          <div>Rating: ${player.rating}</div>
-          <div>Pace: ${player.pace}</div>
-          <div>Shooting: ${player.shooting}</div>
-          <div>Dribbling: ${player.dribbling}</div>
-          <div>Defending: ${player.defending}</div>
-          <div>Physical: ${player.physical}</div>
-          <div>Passing: ${player.passing}</div>
-        </div>
-      </div>
-   
-      <div class="flex justify-around items-center w-full mt-2 p-2 border-t border-gray-300">
-       
-        <i class="fa fa-edit text-blue-600 cursor-pointer" onclick="editPlayer(event, ${index})" title="Edit Player"></i>
-      
-        <i class="fa fa-trash text-red-600 cursor-pointer" onclick="deletePlayer(event, ${index})" title="Delete Player"></i>
-      </div>
-    </div>
-    `;
-    
-}
+
 function deletePlayer(event, index) {
     event.stopPropagation();
 
@@ -195,14 +161,13 @@ function deletePlayer(event, index) {
 function editPlayer(event, index) {
     event.stopPropagation();
 
-    // Show the form fields automatically
+    
     const playerFieldsContainer = document.getElementById('player-fields');
     playerFieldsContainer.classList.remove('hidden');
 
-    // Get the player to edit
+   
     const player = playersList[index];
 
-    // Populate form fields with player data
     document.getElementById('name').value = player.name;
     document.getElementById('photo').value = player.photo;
     document.getElementById('position').value = player.position;
@@ -218,7 +183,7 @@ function editPlayer(event, index) {
     document.getElementById('defending').value = player.defending;
     document.getElementById('physical').value = player.physical;
 
-    // Change submit button text and onclick handler
+    
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.textContent = "Edit Player";
     submitBtn.setAttribute('onclick', `updatePlayer(${index})`);
@@ -284,10 +249,8 @@ function allowDrop(event) {
 
 function drag(event) {
     const draggedElement = event.target;
-
     if (draggedElement && draggedElement.id) {
         event.dataTransfer.setData("text", draggedElement.id);
-        console.log("Dragging element ID:", draggedElement.id);
     } else {
         console.error("Dragged element does not have a valid ID");
     }
@@ -336,7 +299,7 @@ function drop(event) {
                 swal("Slot is already filled", "this cart can't drop here", "warning");
             }
         } else {
-            alert('Position mismatch');
+            swal("Position mismatch", "Position mismatch", "warning");
             console.log({
                 draggedElement,
                 draggedPosition,
@@ -347,11 +310,53 @@ function drop(event) {
         swal("c'anot drop here!", "this elemnet can't drop here", "warning");
     }
 }
-
+function createPlayerCard(player, index) {
+    return `
+    <div id="player-${index}" name="${player.position}" class="card flex flex-col justify-center items-center relative" style="background-image: url('../assets/images/fut21-icon.webp');" draggable="true" ondragstart="drag(event)">
+      <div class="text-center p-2 rounded-lg w-full h-full flex flex-col justify-center items-center">
+        <img src="${player.photo}" alt="Player Photo" class bg-cover bg-center rounded-full mb-2">
+        <div class="text-sm font-bold">${player.name}</div>
+        <div class="flex justify-between items-center mt-2 text-xs">
+          <img src="${player.logo}" alt="Club Logo" class="h-6 w-6 rounded-full">
+          <img src="${player.flag}" alt="Country Flag" class="h-6 w-8 rounded">
+        </div>
+        <div class="text-xs mt-2">
+          <span>${player.nationality}</span> | 
+          <span>${player.position}</span>
+        </div>
+        <div class="grid grid-cols-2 gap-1 text-xs mt-4">
+          <div>Rating: ${player.rating}</div>
+          <div>Pace: ${player.pace}</div>
+          <div>Shooting: ${player.shooting}</div>
+          <div>Dribbling: ${player.dribbling}</div>
+          <div>Defending: ${player.defending}</div>
+          <div>Physical: ${player.physical}</div>
+          <div>Passing: ${player.passing}</div>
+        </div>
+      </div>
+   
+      <div class="flex justify-around items-center w-full mt-2 p-2 border-t border-gray-300">
+       
+        <i class="fa fa-edit text-blue-600 cursor-pointer" onclick="editPlayer(event, ${index})" title="Edit Player"></i>
+      
+        <i class="fa fa-trash text-red-600 cursor-pointer" onclick="deletePlayer(event, ${index})" title="Delete Player"></i>
+      </div>
+    </div>
+    `;
+    
+}
 function findParentWithAttribute(element, attributeName) {
     while (element && !element.hasAttribute(attributeName)) {
         element = element.parentElement;
     }
     return element;
 }
-
+const inputSearch =  document.getElementById("inputSearch");
+function searchPlayers(inputSearch) {
+console.log(inputSearch.value);
+playersList.forEach( player =>(){
+    if (inputSearch.value === player.name) {
+        con
+    }
+})
+}
