@@ -193,11 +193,16 @@ function deletePlayer(event, index) {
 }
 
 function editPlayer(event, index) {
-    event.stopPropagation(); 
+    event.stopPropagation();
 
+    // Show the form fields automatically
+    const playerFieldsContainer = document.getElementById('player-fields');
+    playerFieldsContainer.classList.remove('hidden');
 
+    // Get the player to edit
     const player = playersList[index];
 
+    // Populate form fields with player data
     document.getElementById('name').value = player.name;
     document.getElementById('photo').value = player.photo;
     document.getElementById('position').value = player.position;
@@ -213,13 +218,10 @@ function editPlayer(event, index) {
     document.getElementById('defending').value = player.defending;
     document.getElementById('physical').value = player.physical;
 
-
+    // Change submit button text and onclick handler
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.textContent = "Edit Player";
-    submitBtn.setAttribute('onclick', `updatePlayer(${index})`); // تغيير حدث الضغط على الزر إلى تحديث اللاعب
-
-
-    document.getElementById('player-fields').classList.remove('hidden');
+    submitBtn.setAttribute('onclick', `updatePlayer(${index})`);
 }
 
 function updatePlayer(index) {
@@ -331,6 +333,7 @@ function drop(event) {
                 target.classList.add('filled');
             } else {
                 alert('Slot is already filled');
+                swal("Slot is already filled", "this cart can't drop here", "warning");
             }
         } else {
             alert('Position mismatch');
@@ -341,7 +344,7 @@ function drop(event) {
             });
         }
     } else {
-        alert('Cannot drop here');
+        swal("c'anot drop here!", "this elemnet can't drop here", "warning");
     }
 }
 
